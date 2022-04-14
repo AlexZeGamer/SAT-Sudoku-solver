@@ -1,0 +1,3 @@
+pycosat
+tk
+numpy
