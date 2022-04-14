@@ -51,6 +51,8 @@ def check_digit():
 
 """build the cnf corresponding to sudoku rules"""
 def build_cnf(quiz):
+    quiz = np.array(quiz)
+    
     # create cnf by adding every constraint
     cnf = []
     cnf += set_initial_grid(quiz)
@@ -62,6 +64,8 @@ def build_cnf(quiz):
 
 """9x9x9 3D binary grid > 9x9 2D decimal grid"""
 def bin_to_dec_grid(grid):
+    grid = np.array(grid).reshape((9, 9, 9))
+    
     grid = np.array([
         # digit that belongs in sol[i,j]
         # (ie. index of first positive value in sol[i,j] + 1)
@@ -82,10 +86,25 @@ def solve(quiz):
     sol = sat.solve(cnf)
     if sol == 'UNSAT':
         return None
-
-    sol = np.array(sol).reshape((9, 9, 9))
     
     return bin_to_dec_grid(sol)
+
+"""
+Give n solution to a sudoku grid
+/!\ This function can be very slow (should not be used for a high n value)
+quiz : 9x9 2D decimal grid (np.array)
+"""
+def solve_n(quiz, n):
+    cnf = build_cnf(quiz)
+    
+    sols = list(it.islice(sat.itersolve(cnf), n))
+    if sols == 'UNSAT':
+        return None
+
+    return [
+        bin_to_dec_grid(sol)
+        for sol in sols
+    ]
 
 """
 Give every solution to a sudoku grid
@@ -100,9 +119,7 @@ def solve_all(quiz):
         return None
 
     return [
-        bin_to_dec_grid(
-            np.array(sol).reshape((9, 9, 9))
-        )
+        bin_to_dec_grid(sol)
         for sol in sols
     ]
 

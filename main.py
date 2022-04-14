@@ -1,17 +1,20 @@
 import numpy as np
-from solver import solve
 import tkinter as tk
+
+from solver import solve
+from generate_grid import generate_grid
 
 gui = tk.Tk()
 gui.title('Sudoku Solver')
 
 # show buttons
 buttons = tk.Frame(gui, padx=5, pady=5)
-tk.Button(buttons, text='Empty 🗑️', command=lambda: empty()).grid(row=0, column=0)
-tk.Button(buttons, text='Solve ⚙️', command=lambda: show_solution()).grid(row=0, column=1)
+tk.Button(buttons, text='Empty🗑️', command=lambda: empty()).grid(row=0, column=0)
+tk.Button(buttons, text='New grid 🔢', command=lambda: set_grid(generate_grid())).grid(row=0, column=1)
+tk.Button(buttons, text='Solve ⚙️', command=lambda: show_solution()).grid(row=0, column=2)
 # tk.Button(buttons, text='Print entries', command=lambda: print(entries)).pack() # DEBUG
 # tk.Button(buttons, text='Print grid', command=lambda: print(get_grid())).pack() # DEBUG
-buttons.pack(anchor='e') # anchor buttons to the right
+buttons.pack() # anchor buttons to the center
 
 # create grid
 frame = tk.LabelFrame(gui, text='Sudoku', padx=5, pady=5)
@@ -29,25 +32,25 @@ def get_grid():
         for j in range(9):
             grid[i,j] = entries[i][j].get() or 0
     return grid
+            
+"""Fill the GUI grid with a given grid"""
+def set_grid(grid):
+    for i in range(9):
+        for j in range(9):
+            entries[i][j].delete(0, tk.END) # clear entry
+            entries[i][j].insert(0, grid[i,j] if grid[i,j] != 0 else '')
 
 """Replace empty cells with the/a solution"""
 def show_solution():
     sol = solve(get_grid())
     
     if sol is None:
-        return
+        raise Exception('No solution found')
     
-    for i in range(9):
-        for j in range(9):
-            entries[i][j].fg = 'black'
-            entries[i][j].delete(0, tk.END) # clear entry
-            entries[i][j].insert(0, sol[i,j])
+    set_grid(sol)
 
 """Empty grid"""
 def empty():
-    for i in range(9):
-        for j in range(9):
-            entries[i][j].delete(0, tk.END) # clear entry
-            entries[i][j].insert(0, '')
+    set_grid(np.zeros((9, 9)))
 
 gui.mainloop()

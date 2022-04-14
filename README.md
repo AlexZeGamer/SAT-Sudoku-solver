@@ -28,6 +28,6 @@ Co-developed by:
 - [x] Testing using a sudoku dataset
   - [x] Timing the `solve()` function
 - [x] GUI using tkinter
-- [ ] Generate sudoku grids
+- [x] Generate sudoku grids
 - [ ] Count the number of solutions
 - [ ] Working with n^2 * n^2 sudoku grids
