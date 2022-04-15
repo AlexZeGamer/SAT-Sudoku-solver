@@ -91,7 +91,7 @@ def solve(quiz):
 
 """
 Give n solution to a sudoku grid
-/!\ This function can be very slow (should not be used for a high n value)
+#! This function can be very slow (should not be used for a high n value)
 quiz : 9x9 2D decimal grid (np.array)
 """
 def solve_n(quiz, n):
@@ -108,7 +108,7 @@ def solve_n(quiz, n):
 
 """
 Give every solution to a sudoku grid
-/!\ This function is very slow (should not be used)
+#! This function is very slow (should not be used)
 quiz : 9x9 2D decimal grid (np.array)
 """
 def solve_all(quiz):

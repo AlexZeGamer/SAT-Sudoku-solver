@@ -11,11 +11,11 @@ Download the [1 million Sudoku games dataset](https://www.kaggle.com/datasets/br
 
 Run `solver.py` to run the tests
 
-## Run GUI
+## GUI
 Run `main.py` to enter any soduku puzzle and solve it
 
-![image](https://user-images.githubusercontent.com/54336210/163411198-36622de7-1215-409f-bd8e-4028b0f8818d.png)
-![image](https://user-images.githubusercontent.com/54336210/163411170-9e2c8fbd-5c0e-4150-a991-7447a91a62f5.png)
+![image](https://user-images.githubusercontent.com/54336210/163556329-536ebea2-ed9f-495d-b3dd-bd56274e337e.png)
+![image](https://user-images.githubusercontent.com/54336210/163556372-1e81b11a-fc9d-4622-9931-6d8f3f625ff9.png)
 
 ## Credits
 Co-developed by:
@@ -28,6 +28,10 @@ Co-developed by:
 - [x] Testing using a sudoku dataset
   - [x] Timing the `solve()` function
 - [x] GUI using tkinter
+  - [x] Make sure we can only enter numbers 1-9 in the GUI
+  - [x] Show a popup if the sudoku grid has no solution
+  - [ ] Separate every 3x3 sub-grid
 - [x] Generate sudoku grids
+  - [ ] Generate sudoku grids using a CNF
 - [ ] Count the number of solutions
 - [ ] Working with n^2 * n^2 sudoku grids

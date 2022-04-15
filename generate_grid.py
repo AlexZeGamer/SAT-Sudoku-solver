@@ -8,7 +8,7 @@ import random
 
 
 """Generate a random grid to be solved
-/!\ Not efficient at all (we could have used the SAT solver here)
+# ! Not efficient at all (we could have used the SAT solver here)
 
 difficulty: percentage of cells to be empty"""
 def generate_grid(difficulty = 25, require_unique_sol = True):

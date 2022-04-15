@@ -1,6 +1,8 @@
 import itertools as it
 from typing import List
 
+# basic CNF constaints
+
 """No more than k variables take value 1."""
 def no_more_than_k_are_1(x: List[int], k: int):
     return [[-i for i in c] for c in it.combinations(x, k+1)]
