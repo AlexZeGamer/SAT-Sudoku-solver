@@ -23,7 +23,7 @@ Co-developed by:
 * [Esteban Bruneau](https://github.com/Esteboss)
 
 ## TODO
-- [x] Coding every constraints from sudoku rules (see [here](https://www.sudokuwiki.org/Sudoku_rules)) into a CNF formula
+- [x] Coding every constraint from [sudoku rules](https://www.sudokuwiki.org/Sudoku_rules) into a CNF formula
   - [x] Solving sudoku using pycosat
 - [x] Testing using a sudoku dataset
   - [x] Timing the `solve()` function
