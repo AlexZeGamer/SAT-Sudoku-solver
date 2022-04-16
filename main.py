@@ -61,8 +61,8 @@ def show_solution():
 
         button_close = tk.Button(window, text="Close", command=window.destroy)
         button_close.pack(fill='x')
-    
-    set_grid(sol)
+    else:
+        set_grid(sol)
 
 """Empty grid"""
 def empty():
