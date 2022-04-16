@@ -12,7 +12,7 @@ Download the [1 million Sudoku games dataset](https://www.kaggle.com/datasets/br
 Run `solver.py` to run the tests
 
 ## GUI
-Run `main.py` to enter any soduku puzzle and solve it
+Run `main.py` to enter any sudoku puzzle and solve it
 
 ![image](https://user-images.githubusercontent.com/54336210/163556329-536ebea2-ed9f-495d-b3dd-bd56274e337e.png)
 ![image](https://user-images.githubusercontent.com/54336210/163556372-1e81b11a-fc9d-4622-9931-6d8f3f625ff9.png)
@@ -23,7 +23,7 @@ Co-developed by:
 * [Esteban Bruneau](https://github.com/Esteboss)
 
 ## TODO
-- [x] Coding every constraints from sudoku rules (see [here](https://www.sudokuwiki.org/Sudoku_rules)) into a CNF formula
+- [x] Coding every constraint from [sudoku rules](https://www.sudokuwiki.org/Sudoku_rules) into a CNF formula
   - [x] Solving sudoku using pycosat
 - [x] Testing using a sudoku dataset
   - [x] Timing the `solve()` function
